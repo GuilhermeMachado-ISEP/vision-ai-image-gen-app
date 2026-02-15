@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Vision</string>
+    <string name="submit_your_theme_and_generate_a_image_just_make_sure_to_have_a_wi_fi_connection">Submit your theme and generate a image! Just make sure to have a wi-fi connection!</string>
+    <string name="enter_the_theme_of_your_image_here">Enter the theme of your image here!</string>
+    <string name="todo">TODO</string>
+    <string name="make_sure_you_have_a_stable_wi_fi_connect_and_no_nsfw_themes_in_your_prompt_if_you_recieve_an_error_please_double_check_if_both_these_conditions_apply">Make sure you have a stable wi-fi connect and no nsfw themes in your prompt! If you recieve an error, please double-check if both these conditions apply!</string>
+    <string name="make_sure_you_have_a_stable_wi_fi_connect_and_no_nsfw_themes_in_your_prompt_if_the_generation_fails_and_you_recieve_an_error_please_double_check_if_both_these_conditions_apply" />
+    <string name="make_sure_you_input_no_nsfw_themes_and_have_a_stable_wi_fi_connection_if_the_image_generation_process_fails_and_you_recieve_an_error_make_sure_both_of_these_conditions_apply">Make sure you input no NSFW themes and have a stable Wi-Fi connection. If the image generation process fails and you recieve an error, make sure both of these conditions apply!</string>
+    <string name="oops_something_isnt_working_right_please_make_sure_you_start_the_application_with_a_stable_wifi_connection_and_try_again">Oops, something isnt working right! please make sure you start the application with a stable wifi connection and try again!</string>
+    <string name="press_me_to_start_generating_free_high_quality_images">Press me to start generating free, high quality, images!</string>
+    <string name="image_made_by_rawpixel_com_on_freepik">Image made by rawpixel.com on freepik</string>
+    <string name="welcome_to_vision_the_100_free_ai_image_generator">Welcome to Vision! The 100% free Ai Image generator!</string>
+    <string name="feel_free_to_chose_one_of_our_images_presets_to_add_into_your_prompt">Feel free to chose one of our images presets to add into your prompt!</string>
+    <string name="_3d_selected">3d Selected!</string>
+    <string name="_3d">3d</string>
+    <string name="anime_selected">Anime Selected!</string>
+    <string name="anime">Anime</string>
+    <string name="doubts">If you have any doubts or issues, please make sure to send a email to visionaiimagegen@gmail.com, in order to be able to be able to recieve support on the problems troubling you.</string>
+    <string name="graffiti">Graffiti</string>
+    <string name="you_are_just_a_few_steps_away_from_making_something_like_this">You are just a few steps away from making something like this!</string>
+    <string name="graffiti_selected">Graffiti Selected!</string>
+    <string name="realistic_hd">Realistic/HD</string>
+    <string name="realistic_hd_selected">Realistic/HD Selected!</string>
+    <string name="like_your_image_why_don_t_you_take_a_print_of_it">Like your image? Why don\'t you take a print of it?</string>
+</resources>
