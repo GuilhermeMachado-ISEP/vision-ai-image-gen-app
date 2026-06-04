@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.fatkrab.vision'
-    compileSdk 36
+    compileSdk 37
 
     defaultConfig {
         applicationId "com.fatkrab.vision"
         minSdk 23
-        targetSdk 36
+        targetSdk 37
         versionCode 28
         versionName "1.28"
 
