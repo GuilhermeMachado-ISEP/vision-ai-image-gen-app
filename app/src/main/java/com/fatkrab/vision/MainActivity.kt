@@ -52,12 +52,6 @@ import com.appodeal.ads.InterstitialCallbacks
 import com.appodeal.ads.RewardedVideoCallbacks
 import com.appodeal.ads.initializing.ApdInitializationCallback
 import com.appodeal.ads.initializing.ApdInitializationError
-import com.sendgrid.Method
-import com.sendgrid.SendGrid
-import com.sendgrid.helpers.mail.Mail
-import com.sendgrid.helpers.mail.objects.Attachments
-import com.sendgrid.helpers.mail.objects.Content
-import com.sendgrid.helpers.mail.objects.Email
 import java.io.File
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -69,9 +63,6 @@ import android.content.ClipboardManager
 class MainActivity : AppCompatActivity() {
 
     private var mInterstitialAd: InterstitialAd? = null
-    private var rewardedAd: RewardedAd? = null
-    private var currentInterstitialAdIndex = 0
-    private var currentRewardedAdIndex = 0
     public var imagePath: String = null.toString()
 
 
@@ -140,38 +131,6 @@ class MainActivity : AppCompatActivity() {
         presetButton2.visibility = View.GONE
         presetButton3.visibility = View.GONE
         presetButton4.visibility = View.GONE
-    }
-
-    private fun loadImageAds(){
-        Appodeal.isLoaded(Appodeal.REWARDED_VIDEO)
-
-        val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this, "ca-app-pub-2955958896764515/2733806363", adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.d(TAG, "Interstitial ad failed to load: ${adError.message}")
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                Log.d(TAG, "Interstitial ad loaded.")
-                mInterstitialAd = interstitialAd
-            }
-        })
-    }
-
-    private fun loadInterstitialAd() {
-        Appodeal.isLoaded(Appodeal.INTERSTITIAL)
-
-        val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this, "ca-app-pub-2955958896764515/2733806363", adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.d(TAG, "Interstitial ad failed to load: ${adError.message}")
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                Log.d(TAG, "Interstitial ad loaded.")
-                mInterstitialAd = interstitialAd
-            }
-        })
     }
 
     private suspend fun generateImage(theme: String): String {
@@ -257,32 +216,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         return imagePath
-    }
-
-    private fun showImageAds() {
-        if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO)) {
-            Appodeal.show(this, Appodeal.REWARDED_VIDEO)
-        }else{
-            Log.d(TAG, "No appodeal ads here for u, luv.")
-        }
-        mInterstitialAd?.let {
-            it.show(this)
-        } ?: run {
-            Log.d(TAG, "No interstitial ad to show")
-        }
-    }
-
-    private fun showInterstitialAd() {
-        if (Appodeal.isLoaded(Appodeal.INTERSTITIAL)) {
-            Appodeal.show(this, Appodeal.INTERSTITIAL)
-        }else{
-            Log.d(TAG, "No appodeal ads here for u, luv.")
-        }
-        mInterstitialAd?.let {
-            it.show(this)
-        } ?: run {
-            Log.d(TAG, "No interstitial ad to show")
-        }
     }
 
     fun enableAndShowMainActivityViews() {
@@ -448,9 +381,6 @@ class MainActivity : AppCompatActivity() {
         val textiView4: TextView = findViewById(R.id.textView4)
         val reportMessageTextView: TextView = findViewById(R.id.reportMessageTextView)
         val copyImagePromptButton: Button = findViewById(R.id.copyImagePromptButton)
-        val adRequest = AdRequest.Builder().build()
-
-        loadInterstitialAd()
 
         reportButton.setOnClickListener{
             reportScreen.visibility = View.VISIBLE
@@ -560,13 +490,7 @@ class MainActivity : AppCompatActivity() {
                     MobileAds.initialize(this@MainActivity) {}
                 }
 
-                val adRequest = AdRequest.Builder().build()
-
                 Appodeal.show(this@MainActivity, Appodeal.BANNER_TOP)
-
-                loadImageAds()
-
-                showImageAds()
 
                 imageContainer.apply {
                     alpha = 0f
@@ -668,13 +592,6 @@ class MainActivity : AppCompatActivity() {
 
 
         val handler = Handler()
-        val runnable = object : Runnable {
-            override fun run() {
-                loadInterstitialAd()
-                showInterstitialAd()
-                handler.postDelayed(this, TimeUnit.SECONDS.toMillis(340))
-            }
-        }
     }
     override fun onResume() {
         super.onResume()
